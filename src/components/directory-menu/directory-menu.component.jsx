@@ -43,7 +43,7 @@ class DirectoryMenu extends React.Component {
         return (
             <div className='directory-menu'>
                     {sections.map(item => (
-                        <MenuItem item = {item} />
+                        <MenuItem key={item.id} item = {item} />
                     ))}
             </div>
         )

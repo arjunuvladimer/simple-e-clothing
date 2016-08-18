@@ -16,5 +16,5 @@ export const selectShopData = createSelector(
 
 export const selectCollection = collectionUrlParam => createSelector(
     [selectShopData],
-    shop => shop.find(collection => collection.id === COLLECTION_ID_MAP(collectionUrlParam))
+    shop => shop.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam])
 )

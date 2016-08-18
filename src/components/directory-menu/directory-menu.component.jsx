@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './directory-menu.styles.scss'
-import { MenuItem } from '../menu-item/menu-item.component'
+import  MenuItem  from '../menu-item/menu-item.component'
 import {createStructuredSelector} from 'reselect'
 import {selectSections} from '../../redux/directory/directory.selector'
 import {connect} from 'react-redux'

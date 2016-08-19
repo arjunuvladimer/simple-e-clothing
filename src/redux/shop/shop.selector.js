@@ -13,3 +13,8 @@ export const selectCollection = memoize(collectionUrlParam => createSelector(
     [selectShopData],
     shop => shop[collectionUrlParam]
 ))
+
+export const selectCollectionForPreview = createSelector(
+    [selectShopData],
+    collections => Object.keys(collections).map(key => collections[key])
+)

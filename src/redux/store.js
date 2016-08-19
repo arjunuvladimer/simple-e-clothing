@@ -7,7 +7,11 @@ import {persistStore} from 'redux-persist'
 
 
 // Middlewares that the store is expecting from redux is generally an array
-const middlewares = [logger]
+const middlewares = []
+
+if(process.env.NODE_ENV === 'development'){
+    middlewares.push(logger)
+}
 
 const store = createStore(rootReducer,applyMiddleware(...middlewares))
 

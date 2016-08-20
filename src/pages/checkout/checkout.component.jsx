@@ -1,5 +1,5 @@
 import React from 'react'
-import {CheckoutPageContainer, CheckoutHeaderContainer, HeaderBlockContainer, TotalContainer, ButtonContainer, TestWarningContainer }from './checkout.styles'
+import {CheckoutPageContainer, CheckoutHeaderContainer, HeaderBlockContainer, TotalContainer, TestWarningContainer }from './checkout.styles'
 
 import {connect} from 'react-redux'
 import {selectCartItems,selectCartTotal} from '../../redux/cart/cart.selectors'

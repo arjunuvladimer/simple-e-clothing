@@ -1,6 +1,6 @@
 import React from 'react'
 import {CartDropdownContainer, CartItemsContainer} from './cart-dropdown.styles'
-import CustomButton from '../cutom-button/custom-button.component'
+import CustomButton from '../custom-button/custom-button.component'
 import {connect} from 'react-redux'
 import {selectCartItems} from '../../redux/cart/cart.selectors'
 import {createStructuredSelector} from 'reselect'

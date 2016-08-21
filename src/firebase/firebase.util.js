@@ -42,6 +42,49 @@ const config = {
     return userRef
   }
 
+  export const addCollectionAndDocuments = async (collectionKey, ObjectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey)
+    console.log(collectionRef)
+
+    // In firestore we can only collectionRef.set() method only one at a time
+
+    // If the internet connnection is down while setting the each collection like
+    // 1st the user auth then collection items it may break and send only one data 
+    // which isn't good, so inorder to send all the requests and report fail if anything
+    // breaks that is good
+    // so inorder to do that firestor gives us a function called batch
+    const batch = firestore.batch()
+
+    // The only difference between map and ForEach Loop is map returns an array 
+    // ForEach just iterates it doesn't return anything 
+
+    ObjectsToAdd.forEach(obj => {
+      const newDocRef = collectionRef.doc()
+      batch.set(newDocRef, obj)
+    })
+
+    // It returns us a promise when batch succeeds 
+    return await batch.commit()
+  }
+
+  export const convertCollectionSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map( doc => {
+      const {title, items} = doc.data();
+
+      return {
+        routeName: encodeURI(title.toLowerCase()),
+        id: doc.id,
+        title,
+        items
+      }
+    })
+    // console.log(transformedCollection)
+    return transformedCollection.reduce((accumulator,collection)=> {
+      accumulator[collection.title.toLowerCase()] = collection;
+      return accumulator
+    }, {})
+  }
+  
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
 

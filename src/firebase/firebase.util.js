@@ -4,7 +4,7 @@ import 'firebase/auth' // For Authentication
 
 const config = {
     apiKey: "AIzaSyA4r9j71Td_6iOeB02xTM9ZXegzJQFs-ck",
-    authDomain: "https://simple-e-clothing.nagarjun-naidu.vercel.app/",
+    authDomain: "https://simple-e-clothing.vercel.app/",
     databaseURL: "https://crwn-db-aa552.firebaseio.com",
     projectId: "crwn-db-aa552",
     storageBucket: "crwn-db-aa552.appspot.com",
